@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display:flex ;
+}
+
+.left-panel{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: azure;
+}
+.sketch-area{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sketch{
+    border: 10px solid black;
+    height: 650px;
+    width: 650px;
+}
+
+button{
+    height: 30px;
+    width: 80px;
+    background-color: rgb(108, 112, 112);
+}
+
+
