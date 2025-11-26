@@ -28,6 +28,9 @@
     border: 10px solid black;
     height: 650px;
     width: 650px;
+    /* make a flex box to spread items vertically */
+    display: flex;
+    flex-direction: column;
 }
 
 button{
@@ -41,6 +44,7 @@ button{
 /* make rows */
 .row{
     display: flex;
+    /* flex: 1; make rows spread across */
 }
 
 .box{
