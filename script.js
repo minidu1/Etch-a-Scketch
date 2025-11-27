@@ -5,6 +5,16 @@ let mouseDown = false; // default is mouse is "not clicked"
 document.body.onmousedown = ()=> mouseDown = true; 
 document.body.onmouseup = ()=> mouseDown= false;//mpusedown func will true untill mouse up
 
+function startPaint(box){
+    box.classList.add("hover");
+    mouseDown = true;
+}
+
+function paintBox(box){
+    if (mouseDown) {
+            box.classList.add("hover");
+        }
+}
 
 for (let i = 0; i < 16; i++) {
     const row = document.createElement("div")
@@ -17,15 +27,9 @@ for (let i = 0; i < 16; i++) {
         box.className = "box"
         row.appendChild(box);//add boxes to the row
 
-        box.addEventListener("mousedown", ()=>{
-            box.classList.add("hover");
-            mouseDown = true;
-        })
-        box.addEventListener("mouseover", ()=>{
-        if (mouseDown) {
-            box.classList.add("hover");
-        }
-    });// after innerloop end. a new row will be added
+        box.addEventListener("mousedown", ()=> startPaint(box))
+        box.addEventListener("mouseover", ()=> paintBox(box));
+        // after innerloop end. a new row will be added
     }
 }
 
