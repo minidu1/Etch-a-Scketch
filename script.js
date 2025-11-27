@@ -4,7 +4,8 @@ const sketch = document.getElementById("sketch");
 let mouseDown = false; // default is mouse is "not clicked"
 document.body.onmousedown = ()=> mouseDown = true; 
 document.body.onmouseup = ()=> mouseDown= false;//mpusedown func will true untill mouse up
-console.log( mouseDown)
+
+
 for (let i = 0; i < 16; i++) {
     const row = document.createElement("div")
     row.className = "row"
@@ -16,6 +17,10 @@ for (let i = 0; i < 16; i++) {
         box.className = "box"
         row.appendChild(box);//add boxes to the row
 
+        box.addEventListener("mousedown", ()=>{
+            box.classList.add("hover");
+            mouseDown = true;
+        })
         box.addEventListener("mouseover", ()=>{
         if (mouseDown) {
             box.classList.add("hover");

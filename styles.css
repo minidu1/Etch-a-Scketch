@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+* {
+    user-select: none;
+}
+
+
 :root {
   --sketch-color: rgb(105, 100, 100);
 }
