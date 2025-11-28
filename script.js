@@ -1,10 +1,3 @@
-const sketch = document.getElementById("sketch");
-
-// added a var to track if mouse is hold?
-let mouseDown = false; // default is mouse is "not clicked"
-document.body.onmousedown = ()=> mouseDown = true; 
-document.body.onmouseup = ()=> mouseDown= false;//mpusedown func will true untill mouse up
-
 function startPaint(box){
     box.classList.add("hover");
     mouseDown = true;
@@ -15,6 +8,17 @@ function paintBox(box){
             box.classList.add("hover");
         }
 }
+
+function clearGrid(){
+    allBoxes.forEach(box => box.classList.remove("hover"));
+}
+
+const sketch = document.getElementById("sketch");
+
+// added a var to track if mouse is hold?
+let mouseDown = false; // default is mouse is "not clicked"
+document.body.onmousedown = ()=> mouseDown = true; 
+document.body.onmouseup = ()=> mouseDown= false;//mpusedown func will true untill mouse up
 
 for (let i = 0; i < 16; i++) {
     const row = document.createElement("div")
@@ -33,3 +37,8 @@ for (let i = 0; i < 16; i++) {
     }
 }
 
+const reset = document.querySelector(".reset");
+const allBoxes = document.querySelectorAll(".box");
+
+reset.addEventListener("click", ()=> clearGrid())
+    

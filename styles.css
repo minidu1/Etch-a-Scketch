@@ -22,6 +22,7 @@
 .left-panel{
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: azure;
@@ -47,7 +48,7 @@ button{
     width: 100px;
     background-color: rgb(108, 112, 112);
     border-radius: 50px;
-    
+    margin: 5vh;
 }
 
 /* make rows */
