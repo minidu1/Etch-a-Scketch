@@ -33,13 +33,24 @@ function clearPaint() {
     allBoxes.forEach(box => box.classList.remove("hover"));
 }
 
-function clearGrid(){
+function clearGrid() {
     const allBoxes = document.querySelectorAll(".box");
     const allRows = document.querySelectorAll(".row");
     allBoxes.forEach(box => box.remove());
     allRows.forEach(row => row.remove());
 
-}   
+}
+
+function changeGridSize() {
+    let gridSize = Number(window.prompt("Enter the grid size. Please enter a number between 1-100"))
+    
+    while (isNaN(gridSize) || gridSize>100 ||gridSize <= 0){
+        gridSize = Number(window.prompt("Cant you read? Enter a NUMBER BETWEEN 1-100"))
+    }
+  
+    clearGrid();
+    makeTheGrid(gridSize);
+}
 
 const sketch = document.getElementById("sketch");
 
@@ -56,11 +67,4 @@ reset.addEventListener("click", () => clearPaint())
 
 const changeSizeButton = document.querySelector(".change-size");
 
-changeSizeButton.addEventListener("click", () => {
-    gridSize = window.prompt("Enter the grid size. Please enter a number low than 100")
-    if (gridSize <= 100){
-        clearGrid();
-
-        makeTheGrid(gridSize);
-    }
-})
+changeSizeButton.addEventListener("click", () => changeGridSize());
