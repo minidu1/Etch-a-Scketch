@@ -68,3 +68,17 @@ reset.addEventListener("click", () => clearPaint())
 const changeSizeButton = document.querySelector(".change-size");
 
 changeSizeButton.addEventListener("click", () => changeGridSize());
+
+let rainbowMode = false;
+
+let rainbowButton = document.querySelector(".rainbow");
+
+rainbowButton.addEventListener("click", ()=> toggleRainbowMode());
+
+function toggleRainbowMode() {
+    rainbowMode = !rainbowMode
+}
+ 
+if (rainbowMode) {
+    
+}
