@@ -49,7 +49,7 @@ function paintBox(box) {
 function clearPaint() {
     const allBoxes = document.querySelectorAll(".box");
     allBoxes.forEach(box => box.classList.remove("hover"));
-    
+    allBoxes.forEach(box => box.style.backgroundColor = "")
 }
 
 function clearGrid() {
