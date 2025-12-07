@@ -17,20 +17,39 @@ function makeTheGrid(gridSize = 16) {
     }
 }
 
+function randomColor() {
+    const r = Math.floor(Math.random() * 255)
+    const g = Math.floor(Math.random() * 255)
+    const b = Math.floor(Math.random() * 255)
+
+    return `rgb(${r},${g},${b})`
+}
+
 function startPaint(box) {
-    box.classList.add("hover");
+    if (rainbowMode) {
+        box.style.backgroundColor = randomColor()
+    }
+    else {
+        box.classList.add("hover");
+    }
     mouseDown = true;
 }
 
 function paintBox(box) {
     if (mouseDown) {
-        box.classList.add("hover");
+        if (rainbowMode) {
+            box.style.backgroundColor = randomColor()
+        }
+        else {
+            box.classList.add("hover");
+        }
     }
 }
 
 function clearPaint() {
     const allBoxes = document.querySelectorAll(".box");
     allBoxes.forEach(box => box.classList.remove("hover"));
+    
 }
 
 function clearGrid() {
@@ -43,11 +62,11 @@ function clearGrid() {
 
 function changeGridSize() {
     let gridSize = Number(window.prompt("Enter the grid size. Please enter a number between 1-100"))
-    
-    while (isNaN(gridSize) || gridSize>100 ||gridSize <= 0){
+
+    while (isNaN(gridSize) || gridSize > 100 || gridSize <= 0) {
         gridSize = Number(window.prompt("Cant you read? Enter a NUMBER BETWEEN 1-100"))
     }
-  
+
     clearGrid();
     makeTheGrid(gridSize);
 }
@@ -73,12 +92,8 @@ let rainbowMode = false;
 
 let rainbowButton = document.querySelector(".rainbow");
 
-rainbowButton.addEventListener("click", ()=> toggleRainbowMode());
+rainbowButton.addEventListener("click", () => toggleRainbowMode());
 
 function toggleRainbowMode() {
     rainbowMode = !rainbowMode
-}
- 
-if (rainbowMode) {
-    
 }
